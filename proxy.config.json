@@ -1,0 +1,14 @@
+{
+  "/recomputations/**/*": {
+    "target": "http://192.168.0.25:1337",
+    "secure": false,
+    "logLevel": "warn",
+    "changeOrigin": true
+  },
+  "/recomputations*": {
+    "target": "http://192.168.0.25:1337",
+    "secure": false,
+    "logLevel": "warn",
+    "changeOrigin": true
+  }
+}

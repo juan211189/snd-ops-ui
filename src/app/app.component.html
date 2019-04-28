@@ -1,0 +1,56 @@
+<mat-toolbar color="secondary" class="mat-elevation-z3">
+  <mat-icon class="mat-18">menu</mat-icon>
+  <span>SND Operations</span>
+</mat-toolbar>
+
+<div class="table-container" fxLayout="row nowrap" fxLayoutAlign="center center">
+  <table mat-table [dataSource]="data | async" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>Start date</th>
+      <td mat-cell *matCellDef="let element">{{ element.start_date | date }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef>End Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.end_date | date }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="creationTime">
+      <th mat-header-cell *matHeaderCellDef>Creation Time</th>
+      <td mat-cell *matCellDef="let element">{{ element.creation_time | date }}</td>
+    </ng-container>
+
+    Symbol Column
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon>help_outline</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="['id', 'startDate', 'endDate', 'creationTime', 'status']"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['id', 'startDate', 'endDate', 'creationTime', 'status']"
+    ></tr>
+  </table>
+
+  <button mat-fab color="primary" class="main-action" (click)="create()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
